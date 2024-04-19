@@ -17,13 +17,12 @@ __________________|
 |                 |         
 |_________________|
 
-''' 
-
-
+'''
 
 # CRIA AS CASAS
 
 import random
+
 casa1 = 1
 casa2 = 2
 casa3 = 3
@@ -33,13 +32,12 @@ casa6 = 6
 casa7 = 7
 casa8 = 8
 casa9 = 9
-empate = 0 
-
+empate = 0
 
 escolha = False
 
-
 # CRIA O TABULEIRO
+
 
 def tabuleiro():
   print("      |      |      ")
@@ -55,46 +53,48 @@ def tabuleiro():
 
 # PERGUNTA AO USUARIO QUAL A SUA PEÇA E A DO PC
 
-
 while escolha != True:
-  
-  
-  p1 = int(input("Digite 1 para jogar com o \033[1;34mX\033[m \nou 2 para jogar com \033[1;31mo\033[m : "))
-  
+
+  p1 = int(
+    input(
+      "Digite 1 para jogar com o \033[1;34mX\033[m \nou 2 para jogar com \033[1;31mo\033[m : "
+    ))
+
   # USUARIO
   if p1 == 1:
-    
+
     p = "\033[1;34mX\033[m"
-    print("Você escolheu o","\033[1;34mX\033[m" , "!")
+    print("Você escolheu o", "\033[1;34mX\033[m", "!")
     print("")
     print("Então eu fico com", "\033[1;31mo\033[m", "!")
     print("")
     escolha = True
-    
+
   elif p1 == 2:
-    
+
     p = "\033[1;31mo\033[m"
     print("Você escolhou o", "\033[1;31mo\033[m", "!")
     print("")
     print("Então eu fico com", "\033[1;34mX\033[m")
     print("")
     escolha = True
-    
+
   else:
     print("escolha uma das opções")
     print("")
     print("")
-  
+
   # PC
-  if p1 ==  1:
+  if p1 == 1:
     p2 = "\033[1;31mo\033[m"
-    
+
   elif p1 == 2:
     p2 = "\033[1;34mX\033[m"
-  
+
 tabuleiro()
 
 # PC ESCOLHE ONDE VAI MARCAR E MARCA
+
 
 def jogada_pc():
   global casa1
@@ -107,171 +107,379 @@ def jogada_pc():
   global casa8
   global casa9
   global empate
-  j2=random.randint(1,9)
+  j2 = random.randint(1, 9)
 
-  
   casa_marcada = False
 
   while casa_marcada == False:
     # VERIFICA SE A CASA ESTA DISPONIVEL PARA MARCAR
-  
+
+    # varifica pra fechar primeira linha
+    if casa1 == p2 and casa2 == p2 and casa3 == 3:
+      j2 = 3
+      casa_marcada = True
+
+    if casa1 == p2 and casa2 == 2 and casa3 == p2:
+      j2 = 2
+      casa_marcada = True
+
+    if casa1 == 1 and casa2 == p2 and casa3 == p2:
+      j2 = 1
+      casa_marcada = True
+
+    # segunda linha
+
+    if casa4 == p2 and casa5 == p2 and casa6 == 6:
+      j2 = 6
+      casa_marcada = True
+
+    if casa4 == p2 and casa5 == 5 and casa3 == p2:
+      j2 = 5
+      casa_marcada = True
+
+    if casa4 == 4 and casa5 == p2 and casa6 == p2:
+      j2 = 4
+      casa_marcada = True
+
+    # terceira linha
+    if casa7 == p2 and casa8 == p2 and casa9 == 9:
+      j2 = 9
+      casa_marcada = True
+
+    if casa7 == p2 and casa8 == 8 and casa9 == p2:
+      j2 = 8
+      casa_marcada = True
+
+    if casa7 == 7 and casa8 == p2 and casa9 == p2:
+      j2 = 7
+      casa_marcada = True
+
+    # vertical 1
+    if casa1 == p2 and casa4 == p2 and casa7 == 7:
+      j2 = 7
+      casa_marcada = True
+
+    if casa1 == p2 and casa4 == 4 and casa7 == p2:
+      j2 = 4
+      casa_marcada = True
+
+    if casa1 == 1 and casa4 == p2 and casa7 == p2:
+      j2 = 1
+      casa_marcada = True
+
+    #vvertical 2
+    if casa2 == p2 and casa5 == p2 and casa8 == 8:
+      j2 = 8
+      casa_marcada = True
+
+    if casa2 == p2 and casa5 == 5 and casa8 == p2:
+      j2 = 5
+      casa_marcada = True
+
+    if casa2 == 2 and casa5 == p2 and casa8 == p2:
+      j2 = 2
+      casa_marcada = True
+
+    #vertical 3
+    if casa3 == p2 and casa6 == p2 and casa9 == 9:
+      j2 = 9
+      casa_marcada = True
+
+    if casa3 == p2 and casa6 == 6 and casa9 == p2:
+      j2 = 6
+      casa_marcada = True
+
+    if casa3 == 3 and casa6 == p2 and casa9 == p2:
+      j2 = 3
+      casa_marcada = True
+
+    #diagonal 1
+    if casa1 == p2 and casa5 == p2 and casa9 == 9:
+      j2 = 9
+      casa_marcada = True
+
+    if casa1 == p2 and casa5 == 5 and casa9 == p2:
+      j2 = 5
+      casa_marcada = True
+
+    if casa1 == 1 and casa5 == p2 and casa9 == p2:
+      j2 = 1
+      casa_marcada = True
+
+    #diagonal 2
+    if casa3 == p2 and casa5 == p2 and casa7 == 7:
+      j2 = 7
+      casa_marcada = True
+
+    if casa3 == p2 and casa5 == 5 and casa7 == p2:
+      j2 = 5
+      casa_marcada = True
+
+    if casa3 == 3 and casa5 == p2 and casa7 == p2:
+      j2 = 3
+      casa_marcada = True
+
+    # varifica pra bloquear primeira linha
+    if casa1 == p and casa2 == p and casa3 == 3:
+      j2 = 3
+      casa_marcada = True
+
+    if casa1 == p and casa2 == 2 and casa3 == p:
+      j2 = 2
+      casa_marcada = True
+
+    if casa1 == 1 and casa2 == p and casa3 == p:
+      j2 = 1
+      casa_marcada = True
+
+    # segunda linha
+
+    if casa4 == p and casa5 == p and casa6 == 6:
+      j2 = 6
+      casa_marcada = True
+
+    if casa4 == p and casa5 == 5 and casa3 == p:
+      j2 = 5
+      casa_marcada = True
+
+    if casa4 == 4 and casa5 == p and casa6 == p:
+      j2 = 4
+      casa_marcada = True
+
+    # terceira linha
+    if casa7 == p and casa8 == p and casa9 == 9:
+      j2 = 9
+      casa_marcada = True
+
+    if casa7 == p and casa8 == 8 and casa9 == p:
+      j2 = 8
+      casa_marcada = True
+
+    if casa7 == 7 and casa8 == p and casa9 == p:
+      j2 = 7
+      casa_marcada = True
+
+    # vertical 1
+    if casa1 == p and casa4 == p and casa7 == 7:
+      j2 = 7
+      casa_marcada = True
+
+    if casa1 == p and casa4 == 4 and casa7 == p:
+      j2 = 4
+      casa_marcada = True
+
+    if casa1 == 1 and casa4 == p and casa7 == p:
+      j2 = 1
+      casa_marcada = True
+
+    #vvertical 2
+    if casa2 == p and casa5 == p and casa8 == 8:
+      j2 = 8
+      casa_marcada = True
+
+    if casa2 == p and casa5 == 5 and casa8 == p:
+      j2 = 5
+      casa_marcada = True
+
+    if casa2 == 2 and casa5 == p and casa8 == p:
+      j2 = 2
+      casa_marcada = True
+
+    #vertical 3
+    if casa3 == p and casa6 == p and casa9 == 9:
+      j2 = 9
+      casa_marcada = True
+
+    if casa3 == p and casa6 == 6 and casa9 == p:
+      j2 = 6
+      casa_marcada = True
+
+    if casa3 == 3 and casa6 == p and casa9 == p:
+      j2 = 3
+      casa_marcada = True
+
+    #diagonal 1
+    if casa1 == p and casa5 == p and casa9 == 9:
+      j2 = 9
+      casa_marcada = True
+
+    if casa1 == p and casa5 == 5 and casa9 == p:
+      j2 = 5
+      casa_marcada = True
+
+    if casa1 == 1 and casa5 == p and casa9 == p:
+      j2 = 1
+      casa_marcada = True
+
+    #diagonal 2
+    if casa3 == p and casa5 == p and casa7 == 7:
+      j2 = 7
+      casa_marcada = True
+
+    if casa3 == p and casa5 == 5 and casa7 == p:
+      j2 = 5
+      casa_marcada = True
+
+    if casa3 == 3 and casa5 == p and casa7 == p:
+      j2 = 3
+      casa_marcada = True
     # NÃO ESTÁ
-    
+
     while casa1 != 1 and j2 == 1:
-        j2=random.randint(1,9)
-        print("Então eu jogo ",j2)
-        if j2 == 1 and casa1 == 1:
-          casa1 = p2
-          empate += 1
-          casa_marcada = True
-    # ESTÁ    
-    if j2 == 1 and casa1 == 1:
+      j2 = random.randint(1, 9)
+      print("Então eu jogo ", j2)
+      if j2 == 1 and casa1 == 1:
         casa1 = p2
         empate += 1
         casa_marcada = True
-        print("")
-        print("Então eu jogo ",j2)
-    
+    # ESTÁ
+    if j2 == 1 and casa1 == 1:
+      casa1 = p2
+      empate += 1
+      casa_marcada = True
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa2 != 2 and j2 == 2:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 2 and casa2 == 2:
-          casa2 = p2
-          empate += 1
-          casa_marcada = True
-    
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 2 and casa2 == 2:
+        casa2 = p2
+        empate += 1
+        casa_marcada = True
+
     if j2 == 2 and casa2 == 2:
-          casa2 = p2
-          casa_marcada = True
-          empate += 1
-          print("")
-          print("Então eu jogo ",j2)
-        
+      casa2 = p2
+      casa_marcada = True
+      empate += 1
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa3 != 3 and j2 == 3:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 3 and casa3 == 3:
-          casa3 = p2
-          empate += 1
-          casa_marcada = True
-    
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 3 and casa3 == 3:
+        casa3 = p2
+        empate += 1
+        casa_marcada = True
+
     if j2 == 3 and casa3 == 3:
-          casa3 = p2
-          casa_marcada = True
-          empate += 1
-          print("")
-          print("Então eu jogo ",j2)
-      
+      casa3 = p2
+      casa_marcada = True
+      empate += 1
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa4 != 4 and j2 == 4:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 4 and casa4 == 4:
-          empate += 1
-          casa4 = p2
-          casa_marcada = True
-    
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 4 and casa4 == 4:
+        empate += 1
+        casa4 = p2
+        casa_marcada = True
+
     if j2 == 4 and casa4 == 4:
-          casa4 = p2
-          casa_marcada = True
-          empate += 1
-          print("")
-          print("Então eu jogo ",j2)
-      
+      casa4 = p2
+      casa_marcada = True
+      empate += 1
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa5 != 5 and j2 == 5:
-        j2 = random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 5 and casa5 == 5:
-          casa5 = p2
-          empate += 1
-          casa_marcada = True
-        
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 5 and casa5 == 5:
+        casa5 = p2
+        empate += 1
+        casa_marcada = True
+
     if j2 == 5 and casa5 == 5:
-          casa5 = p2
-          empate += 1
-          casa_marcada = True
-          print("")
-          print("Então eu jogo ",j2)
-      
+      casa5 = p2
+      empate += 1
+      casa_marcada = True
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa6 != 6 and j2 == 6:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 6 and casa6 == 6:
-          casa6 = p2
-          empate += 1
-          casa_marcada = True
-    
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 6 and casa6 == 6:
+        casa6 = p2
+        empate += 1
+        casa_marcada = True
+
     if j2 == 6 and casa6 == 6:
-          casa6 = p2
-          empate += 1
-          casa_marcada = True
-          print("")
-          print("Então eu jogo ",j2)
-      
+      casa6 = p2
+      empate += 1
+      casa_marcada = True
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa7 != 7 and j2 == 7:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 7 and casa7 == 7:
-          casa7 = p2
-          empate += 1
-          casa_marcada = True
-    
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 7 and casa7 == 7:
+        casa7 = p2
+        empate += 1
+        casa_marcada = True
+
     if j2 == 7 and casa7 == 7:
-          casa7 = p2
-          empate += 1
-          casa_marcada = True
-          print("")
-          print("Então eu jogo ",j2)
-      
+      casa7 = p2
+      empate += 1
+      casa_marcada = True
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa8 != 8 and j2 == 8:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 8 and casa8 == 8:
-          empate += 1
-          casa8 = p2
-          casa_marcada = True
-    
-    if j2 == 8 and casa8 == 8:
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 8 and casa8 == 8:
+        empate += 1
         casa8 = p2
         casa_marcada = True
-        empate += 1
-        print("")
-        print("Então eu jogo ",j2)
-      
+
+    if j2 == 8 and casa8 == 8:
+      casa8 = p2
+      casa_marcada = True
+      empate += 1
+      print("")
+      print("Então eu jogo ", j2)
+
     while casa9 != 9 and j2 == 9:
-        j2=random.randint(1,9)
-        print("")
-        print("Então eu jogo ",j2)
-        if j2 == 9 and casa9 == 9:
-          casa9 = p2
-          empate += 1
-          casa_marcada = True
-         
-    if j2 == 9 and casa9 == 9:
+      j2 = random.randint(1, 9)
+      print("")
+      print("Então eu jogo ", j2)
+      if j2 == 9 and casa9 == 9:
         casa9 = p2
-        casa_marcada = True
         empate += 1
-        print("")
-        print("Então eu jogo ",j2)
- 
+        casa_marcada = True
+
+    if j2 == 9 and casa9 == 9:
+      casa9 = p2
+      casa_marcada = True
+      empate += 1
+      print("")
+      print("Então eu jogo ", j2)
+
 
 # SORTEIO DE QUEM COMEÇA!
 
-sorteio = random.randint(1,2)
-player=1
-pc=2
+sorteio = random.randint(1, 2)
+player = 1
+pc = 2
 
 if sorteio == player:
   print("")
   print("Você começa!")
   print("")
-  
+
 else:
   print("Eu irei começar!")
   jogada_pc()
@@ -280,54 +488,52 @@ else:
   print("Sua vez!")
   print("")
 
-
 # COMEÇA O JOGO
 
 tabuleiro_cheio = False
 ganhou = False
 perdeu = False
 
-while tabuleiro_cheio != True :
+while tabuleiro_cheio != True:
   print("")
   j = int(input("onde sera a sua jogada? "))
-  
 
   if j == 1 and casa1 == 1:
     casa1 = p
     empate += 1
-    
-  elif j == 2 and casa2 ==2:
+
+  elif j == 2 and casa2 == 2:
     casa2 = p
     empate += 1
-  
+
   elif j == 3 and casa3 == 3:
     casa3 = p
     empate += 1
-    
-  elif j == 4 and casa4 == 4: 
+
+  elif j == 4 and casa4 == 4:
     casa4 = p
     empate += 1
-    
+
   elif j == 5 and casa5 == 5:
     casa5 = p
     empate += 1
-    
+
   elif j == 6 and casa6 == 6:
     casa6 = p
     empate += 1
-    
+
   elif j == 7 and casa7 == 7:
     casa7 = p
     empate += 1
-    
+
   elif j == 8 and casa8 == 8:
     casa8 = p
     empate += 1
-    
+
   elif j == 9 and casa9 == 9:
     casa9 = p
     empate += 1
-    
+
   else:
     print("Por favor escolha uma das casas!")
 
@@ -336,102 +542,100 @@ while tabuleiro_cheio != True :
   jogada_pc()
   print("")
   tabuleiro()
-  
+
   # TERMINAR O JOGO E FALAR QUE VOCÊ GUANHOU
-  
+
   # NA HORIZONTAL
-  
+
   if casa1 == p and casa2 == p and casa3 == p:
-       print("Parabéns você ganhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você ganhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   elif casa4 == p and casa5 == p and casa6 == p:
-       print("Parabéns você ganhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você ganhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   elif casa7 == p and casa8 == p and casa9 == p:
-       print("Parabéns você ganhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você ganhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   # NA VERTICAL
-  
+
   if casa1 == p and casa4 == p and casa7 == p:
-       print("Parabéns você ganhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você ganhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   elif casa2 == p and casa5 == p and casa8 == p:
-       print("Parabéns você ganhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você ganhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   elif casa3 == p and casa6 == p and casa9 == p:
-       print("Parabéns você ganhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você ganhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   # NA DIAGONAL
   if casa1 == p and casa5 == p and casa9 == p:
-       print("Parabéns você guanhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
+    print("Parabéns você guanhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   elif casa3 == p and casa5 == p and casa7 == p:
-       print("Parabéns você guanhou!")
-       ganhou = True
-       tabuleiro_cheio = True
-  
-  
+    print("Parabéns você guanhou!")
+    ganhou = True
+    tabuleiro_cheio = True
+
   # AVISAR QUE VOCÊ PERDEU
-  
+
   # NA VERTICAL
   if casa1 == p2 and casa4 == p2 and casa7 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
+
   elif casa2 == p2 and casa5 == p2 and casa8 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
+
   elif casa3 == p2 and casa6 == p2 and casa9 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
 
   # NA HORIZONTAL
   if casa1 == p2 and casa2 == p2 and casa3 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
+
   elif casa4 == p2 and casa5 == p2 and casa6 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
+
   elif casa7 == p2 and casa8 == p2 and casa9 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
 
   # DIAGONAL
   if casa1 == p2 and casa5 == p2 and casa9 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
+
   elif casa3 == p2 and casa5 == p2 and casa7 == p2:
-       print("Você perdeu!")
-       perdeu = True
-       tabuleiro_cheio = True
-  
+    print("Você perdeu!")
+    perdeu = True
+    tabuleiro_cheio = True
+
   if empate >= 9 and perdeu != True and ganhou != True:
     print("")
     print("Empate, recomece o jogo.")
-    tabuleiro_cheio = True  
+    tabuleiro_cheio = True
